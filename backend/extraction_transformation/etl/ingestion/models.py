@@ -40,7 +40,7 @@ class LandingCoreBanking(Base):
     __tablename__ = "landing_core_banking"
     __table_args__ = {"schema": "landing"}
 
-    landing_id = Column(BigInteger, primary_key=True, autoincrement=True)
+    landing_core_banking_id = Column(BigInteger, primary_key=True, autoincrement=True)
     batch_id = Column(UUID(as_uuid=True), ForeignKey("landing.landing_batch.batch_id"), nullable=False)
     source_file = Column(String(255), nullable=False)
     customer_id = Column(String(100))
@@ -55,7 +55,7 @@ class LandingCreditCard(Base):
     __tablename__ = "landing_credit_card"
     __table_args__ = {"schema": "landing"}
 
-    landing_id = Column(BigInteger, primary_key=True, autoincrement=True)
+    landing_credit_card_id = Column(BigInteger, primary_key=True, autoincrement=True)
     batch_id = Column(UUID(as_uuid=True), ForeignKey("landing.landing_batch.batch_id"), nullable=False)
     source_file = Column(String(255), nullable=False)
     cust_ref = Column(String(100))
@@ -70,7 +70,7 @@ class LandingLoan(Base):
     __tablename__ = "landing_loan"
     __table_args__ = {"schema": "landing"}
 
-    landing_id = Column(BigInteger, primary_key=True, autoincrement=True)
+    landing_loan_id = Column(BigInteger, primary_key=True, autoincrement=True)
     batch_id = Column(UUID(as_uuid=True), ForeignKey("landing.landing_batch.batch_id"), nullable=False)
     source_file = Column(String(255), nullable=False)
     loan_cust_id = Column(String(100))
@@ -84,7 +84,7 @@ class LandingTransaction(Base):
     __tablename__ = "landing_transaction"
     __table_args__ = {"schema": "landing"}
 
-    landing_id = Column(BigInteger, primary_key=True, autoincrement=True)
+    landing_transaction_id = Column(BigInteger, primary_key=True, autoincrement=True)
     batch_id = Column(UUID(as_uuid=True), ForeignKey("landing.landing_batch.batch_id"), nullable=False)
     source_file = Column(String(255), nullable=False)
     txn_id = Column(String(100))

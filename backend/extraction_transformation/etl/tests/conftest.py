@@ -26,18 +26,23 @@ def session():
 
 
 @pytest.fixture(autouse=True)
-def _clean_landing_tables():
-    """Truncates all landing tables (and cascades to nothing else, since
-    landing has no children) before every test, so tests never see rows
-    left over from a previous test or from a real extraction run."""
+def _clean_tables():
+    """Truncates landing, staging, and reference tables before every test,
+    so tests never see rows left over from a previous test or a real run."""
     s = get_session()
     s.execute(text("""
         TRUNCATE TABLE
+            staging.staging_transaction,
+            staging.staging_loan,
+            staging.staging_credit_card,
+            staging.staging_core_banking,
             landing.landing_transaction,
             landing.landing_loan,
             landing.landing_credit_card,
             landing.landing_core_banking,
-            landing.landing_batch
+            landing.landing_batch,
+            reference.reference_address,
+            reference.trust_hierarchy
         RESTART IDENTITY CASCADE
     """))
     s.commit()

@@ -14,7 +14,7 @@ CREATE TABLE landing.landing_batch (
 );
 
 CREATE TABLE landing.landing_core_banking (
-    landing_id BIGSERIAL PRIMARY KEY,
+    landing_core_banking_id BIGSERIAL PRIMARY KEY,
     batch_id UUID NOT NULL,
     source_file VARCHAR(255) NOT NULL,
     customer_id VARCHAR(100),
@@ -27,7 +27,7 @@ CREATE TABLE landing.landing_core_banking (
 );
 
 CREATE TABLE landing.landing_credit_card (
-    landing_id BIGSERIAL PRIMARY KEY,
+    landing_credit_card_id BIGSERIAL PRIMARY KEY,
     batch_id UUID NOT NULL,
     source_file VARCHAR(255) NOT NULL,
     cust_ref VARCHAR(100),
@@ -40,7 +40,7 @@ CREATE TABLE landing.landing_credit_card (
 );
 
 CREATE TABLE landing.landing_loan (
-    landing_id BIGSERIAL PRIMARY KEY,
+    landing_loan_id BIGSERIAL PRIMARY KEY,
     batch_id UUID NOT NULL,
     source_file VARCHAR(255) NOT NULL,
     loan_cust_id VARCHAR(100),
@@ -52,7 +52,7 @@ CREATE TABLE landing.landing_loan (
 );
 
 CREATE TABLE landing.landing_transaction (
-    landing_id BIGSERIAL PRIMARY KEY,
+    landing_transaction_id BIGSERIAL PRIMARY KEY,
     batch_id UUID NOT NULL,
     source_file VARCHAR(255) NOT NULL,
     txn_id VARCHAR(100),

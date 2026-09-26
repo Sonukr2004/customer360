@@ -12,3 +12,8 @@ CREDIT_CARD_FILE = DATA_DIR / "credit_card.csv"
 # if you point LOAN_FILE at it instead (same data, alternate format).
 LOAN_FILE = DATA_DIR / "loan_system.csv"
 TRANSACTION_FILE = DATA_DIR / "transaction_data.csv"
+
+# Reference/config files -- loaded into reference.reference_address and
+# reference.trust_hierarchy by the transformation stage.
+REFERENCE_ADDRESS_FILE = DATA_DIR / "reference_data.csv"
+TRUST_HIERARCHY_FILE = DATA_DIR / "trust_hierarchy.json"
