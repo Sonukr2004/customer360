@@ -20,6 +20,8 @@ function Customer360() {
     );
   }
 
+  const productSummary = getProductSummary(customer.products);
+
   return (
     <>
       {/* Header */}
@@ -86,6 +88,39 @@ function Customer360() {
         </div>
       </section>
 
+      {/* Product Portfolio */}
+      <section className="section-card">
+        <div className="section-header">
+          <div>
+            <h2>Product Portfolio</h2>
+            <p>
+              {customer.products.length} products linked to this customer
+            </p>
+          </div>
+        </div>
+
+        <div className="portfolio-grid">
+          {productSummary.map((product) => (
+            <div
+              className="portfolio-card"
+              key={product.category}
+            >
+              <span className="portfolio-title">
+                {product.category}
+              </span>
+
+              <strong className="portfolio-count">
+                {product.count}
+              </strong>
+
+              <span className="portfolio-label">
+                {product.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Transaction History */}
       <section className="section-card">
         <div className="section-header">
@@ -95,18 +130,37 @@ function Customer360() {
           </div>
         </div>
 
-        <div className="transaction-list">
+        <div className="transaction-timeline">
           {customer.transactions.map((transaction) => (
             <div
-              className="transaction-row"
+              className="transaction-item"
               key={transaction.id}
             >
-              <div>
-                <strong>{transaction.type}</strong>
-                <small>{transaction.date}</small>
+              <div className="transaction-date">
+                {formatDate(transaction.date)}
               </div>
 
-              <strong>{transaction.amount}</strong>
+              <div className="transaction-details">
+                <div>
+                  <strong className="transaction-amount">
+                    {transaction.amount}
+                  </strong>
+
+                  <span
+                    className={`transaction-type ${
+                      transaction.type.toLowerCase()
+                    }`}
+                  >
+                    {transaction.type}
+                  </span>
+                </div>
+
+                <span className="transaction-account">
+                  {transaction.account ||
+                    transaction.accountType ||
+                    "Account"}
+                </span>
+              </div>
             </div>
           ))}
         </div>
@@ -168,7 +222,6 @@ function Customer360() {
 
             <label>
               Name
-
               <input
                 type="text"
                 defaultValue={customer.name}
@@ -177,7 +230,6 @@ function Customer360() {
 
             <label>
               Email
-
               <input
                 type="email"
                 defaultValue={customer.email}
@@ -186,7 +238,6 @@ function Customer360() {
 
             <label>
               Phone
-
               <input
                 type="text"
                 defaultValue={customer.phone}
@@ -195,7 +246,6 @@ function Customer360() {
 
             <label>
               Address
-
               <input
                 type="text"
                 defaultValue={customer.address}
@@ -223,6 +273,78 @@ function Customer360() {
     </>
   );
 }
+
+
+/* =========================
+   PRODUCT SUMMARY
+========================= */
+
+function getProductSummary(products) {
+  const categories = [
+    {
+      category: "Savings Accounts",
+      keywords: ["savings"],
+      label: "Accounts",
+    },
+    {
+      category: "Current Accounts",
+      keywords: ["current"],
+      label: "Accounts",
+    },
+    {
+      category: "Credit Card",
+      keywords: ["credit card"],
+      label: "Cards",
+    },
+    {
+      category: "Loans",
+      keywords: ["loan"],
+      label: "Active",
+    },
+  ];
+
+  return categories
+    .map((category) => {
+      const matchingProducts = products.filter((product) => {
+        const type = product.type.toLowerCase();
+
+        return category.keywords.some((keyword) =>
+          type.includes(keyword)
+        );
+      });
+
+      return {
+        category: category.category,
+        count: matchingProducts.length,
+        label: category.label,
+      };
+    })
+    .filter((category) => category.count > 0);
+}
+
+
+/* =========================
+   DATE FORMATTER
+========================= */
+
+function formatDate(date) {
+  const parsedDate = new Date(date);
+
+  if (Number.isNaN(parsedDate.getTime())) {
+    return date;
+  }
+
+  return parsedDate.toLocaleDateString("en-IN", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+
+/* =========================
+   GOLDEN RECORD FIELD
+========================= */
 
 function Field({ label, value, source }) {
   return (
