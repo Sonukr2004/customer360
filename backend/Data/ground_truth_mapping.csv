@@ -1,0 +1,64 @@
+Master_ID,Core_Banking_Customer_ID,Core_Banking_Duplicate_IDs,Credit_Card_Cust_Ref,Loan_Cust_ID,Email_Exact_Match_CC_vs_Core,True_Name,True_DOB,True_Phone
+M00475,C0001,,CC_243,L_817,fuzzy_only,Kara Randy Clark,3/22/1959,9971674338
+M00541,C0002,,CC_563,,fuzzy_only,Rhonda Donna Cunningham,10/27/1999,9149501364
+M00423,C0003,,,L_755,,Shannon Jensen,6/5/1973,9714014011
+M01154,C0004,,,,,Daniel Janet Terry,12/27/1971,9987610814
+M00996,C0012,,CC_433,,exact,Ashley Jeffrey Nash,4/25/1995,9078197543
+M01269,C0013,,CC_473,,fuzzy_only,Nathan Torres,2/20/1971,9363726294
+M00317,C0014,,CC_913,L_711,fuzzy_only,Randall Johnson,6/17/2002,9705865094
+M00953,C0015,,,,,Benjamin Hernandez,5/22/1994,9792463203
+M01223,C0016,,CC_190,,fuzzy_only,John Petersen,11/27/1989,9761087082
+M00614,C0017,,CC_889,,fuzzy_only,Bryan Hill,5/5/1986,9030587210
+M00232,C0018,,CC_543,L_559,fuzzy_only,Victor Pena,8/22/2002,9760083505
+M01063,C0019,,,,,Peter Butler,2/17/1989,9673820974
+M01293,C0020,,,,,Albert Stone,3/28/1973,9305661995
+M00636,C0021,,,,,Jason Mcgee,10/10/1970,9665586851
+M00361,C0022,,CC_915,,exact,Amanda Rebecca Glover,5/18/1996,9577017157
+M01289,C0023,,,,,Brittany Tanya Martinez,8/1/1964,9478536988
+M00626,C0024,,,,,Jeffrey Phillips,7/28/1966,9197054669
+M01086,C0025,,CC_506,L_752,exact,Stephen Trevino,3/1/1984,9914388232
+M00173,C0026,,,,,Angela Linda Wood,6/22/1986,9962923309
+M01373,C0027,,CC_265,,exact,Monica Jones,12/31/2001,9590841947
+M00300,C0028,,,,,Patricia Craig,10/30/1959,9132611178
+M00303,C0029,,CC_694,L_852,exact,Linda Jarvis,12/13/2001,9745642400
+M01306,C0030,,,L_967,,Sandra Rogers,5/7/1983,9787304862
+M00950,C0031,,CC_107,,exact,Troy Patel,10/17/1958,9947372132
+M00504,C0098,C1502,,,,Ashley Meza,7/4/1966,9728399921
+M00286,C0099,,,,,Jeremy Linda Davis,10/19/1995,9489554393
+M00764,C0100,,CC_198,L_557,fuzzy_only,Adrienne Sherman,1/15/1956,9602529867
+M01193,C0101,,CC_521,,exact,Joseph Bradley Thompson,6/23/1963,9158189705
+M01114,C0102,,,,,Sharon Kent,11/17/1978,9612374077
+M00594,C0103,,CC_562,,exact,Cheryl Joseph Pearson,6/29/1982,9609310668
+M00535,C0104,,,,,Kimberly Madison Franklin,5/25/1957,9567243807
+M00368,C0105,,,,,Ryan Jordan,8/6/1962,9220102762
+M00406,C0106,,CC_601,L_791,exact,Billy Ramirez,4/10/1984,9310385695
+M00318,C0107,,CC_483,,fuzzy_only,Austin John Harvey,1/19/1971,9113863383
+M00042,C0108,,,L_954,,Jeanne Sara Smith,9/28/1998,9799650752
+M01263,C0109,,,L_556,,Mark Webb,10/7/1995,9122276433
+M01285,C0110,,CC_660,,fuzzy_only,Sara Barry,10/26/1990,9457202665
+M00638,C0111,,CC_867,,fuzzy_only,Sierra Lamb,2/16/1997,9463378613
+M00794,C0112,,CC_444,L_938,fuzzy_only,Jeffrey Juan Smith,9/29/1998,9354884712
+M00195,C0113,,CC_295,,fuzzy_only,Lee Thompson,2/22/1987,9212775618
+M01082,C0114,,,,,Craig Chapman,5/14/1969,9060183647
+M01487,C0115,,CC_498,L_505,exact,Joseph Carroll,5/22/1980,9189655834
+M00380,C0116,,CC_668,,fuzzy_only,Elizabeth Michael Jackson,1/6/1984,9124471746
+M01242,C0117,,CC_922,L_626,exact,Jamie Murray,12/10/1976,9344149169
+M00737,C0118,,,,,Megan Williams,11/3/1999,9996043878
+M00494,C0119,,CC_814,,exact,Tony Stewart,4/14/1965,9626085641
+M01475,C0120,,CC_215,,fuzzy_only,Timothy Lewis,2/12/1956,9858864078
+M00123,C0121,C1549,,L_630,,Eric Olson,1/8/2000,9307562636
+M00691,C0122,,,,,Thomas Laura Clark,9/16/1961,9034465124
+M01457,C0123,C1531,CC_299,,fuzzy_only,John Sullivan,8/11/1961,9066799864
+M00831,C0124,,CC_815,L_604,fuzzy_only,Robert Gonzales,5/28/1976,9609191911
+M00273,C0125,,,,,Bobby Ball,12/25/1961,9498926659
+M00583,C0126,C1537,CC_113,,fuzzy_only,Joel Robert Shaw,2/25/1960,9465111312
+M00051,C1316,,CC_517,,exact,John Gonzales,4/10/1994,9717464887
+M00802,C1317,,CC_202,,fuzzy_only,Savannah Pittman,6/30/1987,9557325737
+M00556,C1318,,CC_737,,exact,Kevin Hardy,8/30/1957,9214161415
+M01099,C1319,,,,,Pamela Brown,7/14/1975,9399529701
+M01228,C1320,,CC_361,,exact,Kimberly Joshua Sandoval,12/12/1965,9413075384
+M01178,C1321,,,L_511,,Breanna Torres,4/12/1988,9476022069
+M00676,C1338,,CC_347,L_583,exact,Mary Joshua Hardy,6/25/1957,9857567667
+,,,,,,,,
+,,,,,,,,
+"Note: This file contains a few sample customer data records from different sources that are expected to match based on exact and fuzzy match for your reference and does not include the complete customer dataset. Also, there are duplicate data in the core banking system as indicated on rows 26, 49, 51 and 54.",,,,,,,,
