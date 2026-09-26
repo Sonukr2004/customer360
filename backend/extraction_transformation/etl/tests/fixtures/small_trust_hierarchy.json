@@ -1,0 +1,11 @@
+This defines the "Survivorship" logic.
+
+{
+  "field_priorities": {
+    "Phone": ["SourceA", "SourceB", "SourceC"],
+    "Email": ["SourceB", "SourceA", "SourceC"],
+    "Name": ["SourceA", "SourceB", "SourceC"],
+    "Address": ["SourceB", "SourceA", "SourceC"],
+    "DOB": ["SourceA", "SourceB", "SourceC"]
+  }
+}

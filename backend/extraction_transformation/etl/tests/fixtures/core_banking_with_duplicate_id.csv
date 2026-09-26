@@ -1,0 +1,4 @@
+Customer_ID,Name,Email,Phone,DOB,Address
+C0001,John Doe,john@example.com,9876543210,1990-01-01,12 MG St.
+C0002,Jane Roe,jane@example.com,9111111111,1985-05-05,1 Oak St.
+C0001,John D. Doe,john.doe@example.com,9876543211,1990-01-01,12 MG Street

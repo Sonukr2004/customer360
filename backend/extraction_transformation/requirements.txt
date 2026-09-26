@@ -1,0 +1,12 @@
+sqlalchemy==2.0.35
+python-dotenv==1.0.1
+pytest==8.3.3
+
+# Postgres driver -- install ONE of these, whichever installs cleanly on
+# your machine, then match the scheme in your .env's *_DB_URL accordingly:
+#   psycopg2-binary  -> use postgresql+psycopg2://...  in the URL
+#   psycopg[binary]  -> use postgresql+psycopg://...   in the URL (v3, no
+#                        "2"). On Windows, psycopg2-binary sometimes tries
+#                        to build from source and fails needing pg_config;
+#                        if that happens, use psycopg[binary] instead.
+psycopg2-binary==2.9.9
