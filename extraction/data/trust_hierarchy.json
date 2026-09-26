@@ -1,0 +1,16 @@
+This defines the "Survivorship" logic. If Source B and Source A both have an email, the system must pick Source B's email.
+
+{
+  "field_priorities": {
+    "Phone": ["SourceA", "SourceB", "SourceC"],
+    "Email": ["SourceB", "SourceA", "SourceC"],
+    "Name": ["SourceA", "SourceB", "SourceC"],
+    "Address": ["SourceB", "SourceA", "SourceC"],
+    "DOB": ["SourceA", "SourceB", "SourceC"]
+  },
+  "matching_rules": {
+    "exact_match_fields": ["Email", "Phone"],
+    "fuzzy_match_fields": ["Name"],
+    "fuzzy_threshold": 0.85
+  }
+}
