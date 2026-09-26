@@ -1,83 +1,68 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useMemo, useState } from "react";
 import { customers } from "../data/mockCustomers";
 
 function Customers() {
-  const [search, setSearch] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [productFilter, setProductFilter] = useState("All");
-  const [regionFilter, setRegionFilter] = useState("");
+  const [regionQuery, setRegionQuery] = useState("");
 
-  const filteredCustomers = customers.filter((customer) => {
-    const query = search.toLowerCase();
-    const regionQuery = regionFilter.toLowerCase();
+  const filteredCustomers = useMemo(() => {
+    const search = searchQuery.trim().toLowerCase();
+    const region = regionQuery.trim().toLowerCase();
 
-    // Search
-    const matchesSearch =
-      customer.name.toLowerCase().includes(query) ||
-      customer.email.toLowerCase().includes(query) ||
-      customer.phone.includes(query);
+    return customers.filter((customer) => {
+      const matchesSearch =
+        !search ||
+        customer.name.toLowerCase().includes(search) ||
+        customer.email.toLowerCase().includes(search) ||
+        customer.phone.toLowerCase().includes(search);
 
-    // Product Type Filter
-    const matchesProduct =
-      productFilter === "All" ||
-      customer.products.some((product) => {
-        const productType = product.type.toLowerCase();
+      const matchesProduct =
+        productFilter === "All" ||
+        customer.products.some((product) =>
+          product.type
+            .toLowerCase()
+            .includes(productFilter.toLowerCase())
+        );
 
-        if (productFilter === "Savings") {
-          return productType.includes("savings");
-        }
+      const matchesRegion =
+        !region ||
+        customer.address.toLowerCase().includes(region);
 
-        if (productFilter === "Credit Card") {
-          return productType.includes("credit card");
-        }
+      return matchesSearch && matchesProduct && matchesRegion;
+    });
+  }, [searchQuery, productFilter, regionQuery]);
 
-        if (productFilter === "Loan") {
-          return productType.includes("loan");
-        }
-
-        if (productFilter === "Current Account") {
-          return productType.includes("current");
-        }
-
-        return false;
-      });
-
-    // Address / Region Filter
-    const matchesRegion =
-      regionQuery === "" ||
-      customer.address.toLowerCase().includes(regionQuery);
-
-    return matchesSearch && matchesProduct && matchesRegion;
-  });
+  function clearFilters() {
+    setProductFilter("All");
+    setRegionQuery("");
+  }
 
   return (
-    <>
-      <h1>Customers</h1>
+    <div className="page">
+      <div className="page-header">
+        <h1>Customers</h1>
+        <p>Search and manage unified customer records.</p>
+      </div>
 
-      <p className="page-description">
-        Search and manage unified customer records.
-      </p>
+      <div className="customer-search">
+        <input
+          type="text"
+          placeholder="Search by name, email or phone..."
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
+        />
+      </div>
 
-      {/* Search */}
-      <input
-        className="search-input"
-        type="text"
-        placeholder="Search by name, email or phone..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-
-      {/* Filters */}
       <div className="customer-filters">
         <div className="filter-group">
-          <label htmlFor="product-filter">
-            Product Type
-          </label>
+          <label>PRODUCT TYPE</label>
 
           <select
-            id="product-filter"
             value={productFilter}
-            onChange={(e) => setProductFilter(e.target.value)}
+            onChange={(event) =>
+              setProductFilter(event.target.value)
+            }
           >
             <option value="All">All Products</option>
             <option value="Savings">Savings</option>
@@ -90,77 +75,34 @@ function Customers() {
         </div>
 
         <div className="filter-group">
-          <label htmlFor="region-filter">
-            Address / Region
-          </label>
+          <label>ADDRESS / REGION</label>
 
           <input
-            id="region-filter"
             type="text"
             placeholder="Search address or region..."
-            value={regionFilter}
-            onChange={(e) => setRegionFilter(e.target.value)}
+            value={regionQuery}
+            onChange={(event) =>
+              setRegionQuery(event.target.value)
+            }
           />
         </div>
 
         <button
-          className="clear-filter-button"
-          onClick={() => {
-            setProductFilter("All");
-            setRegionFilter("");
-          }}
+          className="clear-filters"
+          onClick={clearFilters}
         >
           Clear Filters
         </button>
       </div>
 
-      {/* Customer Table */}
-      <div className="customer-table">
-        <div className="customer-table-header">
-          <span>Customer</span>
-          <span>Email</span>
-          <span>Phone</span>
-          <span>Products</span>
-          <span>Profile Completion</span>
-          <span></span>
-        </div>
-
-        {filteredCustomers.map((customer) => (
-          <div
-            className="customer-table-row"
-            key={customer.id}
-          >
-            <div>
-              <strong>{customer.name}</strong>
-              <small>{customer.id}</small>
-            </div>
-
-            <span>{customer.email}</span>
-
-            <span>{customer.phone}</span>
-
-            <span>{customer.products.length}</span>
-
-            <span className="quality-score">
-              {customer.qualityScore}%
-            </span>
-
-            <Link
-              to={`/customers/${customer.id}`}
-              className="view-button"
-            >
-              View →
-            </Link>
-          </div>
-        ))}
-
-        {filteredCustomers.length === 0 && (
-          <div className="empty-state">
-            No customers found matching the selected filters.
-          </div>
-        )}
+      <div className="section-card">
+        <h2>Customer Search</h2>
+        <p>
+          {filteredCustomers.length} customer
+          {filteredCustomers.length !== 1 ? "s" : ""} found.
+        </p>
       </div>
-    </>
+    </div>
   );
 }
 

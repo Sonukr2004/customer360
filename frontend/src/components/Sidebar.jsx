@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 function Sidebar() {
   const links = [
     { path: "/", label: "Dashboard" },
-    { path: "/customers", label: "Customers" },
     { path: "/ingestion", label: "Data Ingestion" },
     { path: "/quality", label: "Data Quality" },
   ];
@@ -33,7 +32,10 @@ function Sidebar() {
         ))}
       </nav>
 
-      
+      <div className="sidebar-footer">
+        <span>Data Steward</span>
+        <small>Online</small>
+      </div>
     </aside>
   );
 }
