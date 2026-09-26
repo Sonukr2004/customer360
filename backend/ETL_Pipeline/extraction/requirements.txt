@@ -1,6 +1,7 @@
 sqlalchemy==2.0.35
 python-dotenv==1.0.1
 pytest==8.3.3
+rapidfuzz==3.9.7
 
 # Postgres driver -- install ONE of these, whichever installs cleanly on
 # your machine, then match the scheme in your .env's *_DB_URL accordingly:
