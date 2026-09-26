@@ -32,6 +32,14 @@ def _clean_tables():
     s = get_session()
     s.execute(text("""
         TRUNCATE TABLE
+            master.audit_log,
+            master.field_lineage,
+            master.customer_transaction,
+            master.loan_product,
+            master.credit_card_product,
+            master.core_product,
+            master.identity_map,
+            master.master_customer,
             staging.staging_transaction,
             staging.staging_loan,
             staging.staging_credit_card,
