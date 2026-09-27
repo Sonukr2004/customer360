@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.customers import router as customers_router
-
+from api.quality import router as quality_router
 
 app = FastAPI(
     title="UniBank Customer 360 API",
@@ -22,7 +22,7 @@ app.add_middleware(
 )
 
 app.include_router(customers_router)
-
+app.include_router(quality_router)
 
 @app.get("/health", tags=["Health"])
 def health_check():

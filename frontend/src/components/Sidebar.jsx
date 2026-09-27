@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 function Sidebar() {
   const links = [
     { path: "/", label: "Dashboard" },
-    { path: "/ingestion", label: "Data Ingestion" },
     { path: "/quality", label: "Data Quality" },
   ];
 

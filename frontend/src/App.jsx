@@ -4,7 +4,6 @@ import Sidebar from "./components/Sidebar";
 
 import Dashboard from "./pages/Dashboard";
 import Customer360 from "./pages/Customer360";
-import Ingestion from "./pages/Ingestion";
 import Quality from "./pages/Quality";
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/customers/:id" element={<Customer360 />} />
-          <Route path="/ingestion" element={<Ingestion />} />
           <Route path="/quality" element={<Quality />} />
         </Routes>
       </main>
